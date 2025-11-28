@@ -4,7 +4,7 @@ import os
 
 def install_dependencies():
     print("🔧 Installing dependencies...")
-    required_packages = ['pynput', 'keyboard']
+    required_packages = ['pynput', 'keyboard', 'tkinter']
     
     for package in required_packages:
         try:
