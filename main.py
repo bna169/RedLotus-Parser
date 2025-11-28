@@ -3,29 +3,29 @@ import sys
 import os
 
 def install_dependencies():
-    print("Installing dependencies...")
+    print("🔧 Installing dependencies...")
     required_packages = ['pynput', 'keyboard']
     
     for package in required_packages:
         try:
             __import__(package)
-            print(f"{package} already installed...")
+            print(f"✅ {package} already installed")
         except ImportError:
-            print(f"Installing {package}...")
+            print(f"📦 Installing {package}...")
             subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-            print(f"{package} installed successfully")
+            print(f"✅ {package} installed successfully")
 
 def download_and_run():
     print("\n🚀 Starting Sneaky Clicker...")
     
+    import tkinter as tk
+    from tkinter import ttk
+    import threading
+    import time
+    import keyboard
+    from pynput.mouse import Controller, Button
+    
     code = '''
-import tkinter as tk
-from tkinter import ttk
-import threading
-import time
-import keyboard
-from pynput.mouse import Controller, Button
-
 class SneakyClicker:
     def __init__(self):
         self.root = tk.Tk()
@@ -311,7 +311,7 @@ if __name__ == "__main__":
     app.run()
 '''
     
-    exec(code)
+    exec(code, {'tk': tk, 'ttk': ttk, 'threading': threading, 'time': time, 'keyboard': keyboard, 'Controller': Controller, 'Button': Button})
 
 if __name__ == "__main__":
     print("=" * 50)
